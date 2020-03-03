@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="css/index.css" />
+		<script type="text/javascript" src="js/vue.js"></script>
+		<style>
+			.demo-table-expand {
+				font-size: 0;
+			}
+			
+			.demo-table-expand label {
+				width: 90px;
+				color: #99a9bf;
+			}
+			
+			.demo-table-expand .el-form-item {
+				margin-right: 0;
+				margin-bottom: 0;
+				width: 50%;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="div1">
+			<template>
+				<el-table :data="tableData" style="width: 100%">
+					<el-table-column type="expand">
+						<template slot-scope="props">
+							<el-table :data="tableData" style="width: 100%;">
+								<el-table-column label="姓名" prop="id">
+								</el-table-column>
+								<el-table-column label="工作" prop="name">
+								</el-table-column>
+								<el-table-column label="工资" prop="desc">
+								</el-table-column>
+								<el-table-column label="入职时间" prop="desc">
+								</el-table-column>
+								<el-table-column label="奖金" prop="desc">
+								</el-table-column>
+								<el-table-column label="操作" prop="desc">
+									
+								</el-table-column>
+							</el-table>
+						</template>
+					</el-table-column>
+					<el-table-column label="部门编号" prop="id">
+					</el-table-column>
+					<el-table-column label="部门名称" prop="name">
+					</el-table-column>
+					<el-table-column label="部门地址" prop="desc">
+					</el-table-column>
+				</el-table>
+			</template>
+		</div>
+	</body>
+	<script type="text/javascript" src="js/index.js"></script>
+	<script>
+		var div1 = new Vue({
+			data: {
+				tableData: [{
+					id: '1',
+					name: '开发部',
+					category: '江浙小吃、小吃零食',
+					desc: '株洲',
+					address: '上海市普陀区真北路',
+					shop: '王小虎夫妻店',
+					shopId: '10333',
+					list: [{
+						name: '生正向11',
+						gz: '会计11',
+						gozi: '3000',
+						jj: '100'
+					}, {
+						name: '生正向12',
+						gz: '会计12',
+						gozi: '3000',
+						jj: '100'
+					}]
+				}, {
+					id: '2',
+					name: '开发部',
+					category: '江浙小吃、小吃零食',
+					desc: '长沙',
+					address: '上海市普陀区真北路',
+					shop: '王小虎夫妻店',
+					shopId: '10333',
+					list: [{
+						name: '生正向21',
+						gz: '会计21',
+						gozi: '3000',
+						jj: '100'
+					}, {
+						name: '生正向22',
+						gz: '会计22',
+						gozi: '3000',
+						jj: '100'
+					}]
+				}]
+			},
+			methods: {},
+			filters: {
+				changSex(val) {
+					return val == 0 ? '男' : '女';
+				}
+			}
+		}).$mount('#div1');
+	</script>
+
+</html>
